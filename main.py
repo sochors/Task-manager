@@ -2,12 +2,22 @@ ukoly = []
 
 def pridat_ukol():
     nazev_ukolu = input("Zadejte název úkolu: ")
+    while True:
+        if not nazev_ukolu:
+            nazev_ukolu = input("Zadejte název úkolu: ")
+        else:
+            break
+    
     popis_ukolu = input("Zadejte popis úkolu: ")
-    ukoly.append(f"{nazev_ukolu} – {popis_ukolu}")
-    print(f"\nÚkol '{nazev_ukolu}' byl přidán\n")
-    print(ukoly) # TOTO PAK SMAZAT
-    hlavni_menu()
-
+    while True:
+        if popis_ukolu == "":
+            popis_ukolu = input("Zadejte popis úkolu: ")
+        else:
+            ukoly.append(f"{nazev_ukolu} – {popis_ukolu}")
+            print(f"\nÚkol '{nazev_ukolu}' byl přidán\n")
+            hlavni_menu()
+            break
+            
 
 def zobrazit_ukoly():
     if ukoly:
@@ -18,18 +28,21 @@ def zobrazit_ukoly():
         print("")
         hlavni_menu()
     else:
-        # print("")
         print(f"\nMomentálně nemáš žádné přidané úkoly:)\n")
         hlavni_menu()
 
 
 def odstranit_ukol():
     if ukoly:
-        task_number = int(input(f"\nZadejte číslo úkolu, které chcete odstanit: "))
-        # TO-DO Kontrola, že zadané číslo odpovídá počtu úkolů
-        ukoly.remove(ukoly[task_number-1])
-        print(f"\nÚkol {task_number} byl odstraněn.\n")
-        hlavni_menu()
+        task_number = int(input(f"\nZadejte číslo úkolu, které chcete odstranit: "))
+        while True:
+            if task_number in range(1, len(ukoly) + 1):
+                ukoly.remove(ukoly[task_number-1])
+                print(f"\nÚkol {task_number} byl odstraněn.\n")
+                hlavni_menu()
+                break
+            else:
+                task_number = int(input(f"\nNeplatná hodnota. Zadejte číslo úkolu, které chcete odstranit: "))
     else:
         print(f"\nMomentálně nemáš žádné přidané úkoly:)\n")
         hlavni_menu()
@@ -46,7 +59,7 @@ def hlavni_menu():
         odstranit_ukol()
     elif user_choice == "4":
         print(f"\nKonec programu.\n")
-        quit
+        quit()
     else:
         print(f"\nZvolili jste neplatnou možnost. Prosím, opakujte volbu.\n")
         hlavni_menu()
