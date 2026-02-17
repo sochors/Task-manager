@@ -47,7 +47,7 @@ def odstranit_ukol():
                 hlavni_menu()
                 break
             else:
-                task_number = int(input(f"\nNeplatná hodnota. Zadejte číslo úkolu, které chcete odstranit: "))
+                task_number = int(input(f"\nNeplatná hodnota. Zadej číslo úkolu, které chceš odstranit: "))
     else:
         print(f"\nMomentálně nemáš žádné přidané úkoly:)\n")
         hlavni_menu()
