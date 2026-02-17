@@ -37,6 +37,7 @@ def odstranit_ukol():
         print("\nSeznam úkolů:")
         for i, ukol in enumerate(ukoly, start=1):
             print(f"{i}. {ukol}")
+            
         task_number = int(input(f"\nZadejte číslo úkolu, které chcete odstranit: "))
         
         while True:
