@@ -34,7 +34,11 @@ def zobrazit_ukoly():
 
 def odstranit_ukol():
     if ukoly:
+        print("\nSeznam úkolů:")
+        for i, ukol in enumerate(ukoly, start=1):
+            print(f"{i}. {ukol}")
         task_number = int(input(f"\nZadejte číslo úkolu, které chcete odstranit: "))
+        
         while True:
             if task_number in range(1, len(ukoly) + 1):
                 ukoly.remove(ukoly[task_number-1])
