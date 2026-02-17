@@ -1,17 +1,17 @@
 ukoly = []
 
 def pridat_ukol():
-    nazev_ukolu = input("Zadejte název úkolu: ")
+    nazev_ukolu = input("Zadej název úkolu (pole nesmí být prázdné): ")
     while True:
         if not nazev_ukolu:
-            nazev_ukolu = input("Zadejte název úkolu: ")
+            nazev_ukolu = input("Nezadal/a jsi název úkolu, doplň název: ")
         else:
             break
     
-    popis_ukolu = input("Zadejte popis úkolu: ")
+    popis_ukolu = input("Zadej název úkolu (pole nesmí být prázdné): ")
     while True:
         if popis_ukolu == "":
-            popis_ukolu = input("Zadejte popis úkolu: ")
+            popis_ukolu = input("Nezadal/a jsi název úkolu, doplň název: ")
         else:
             ukoly.append(f"{nazev_ukolu} – {popis_ukolu}")
             print(f"\nÚkol '{nazev_ukolu}' byl přidán\n")
@@ -38,7 +38,7 @@ def odstranit_ukol():
         for i, ukol in enumerate(ukoly, start=1):
             print(f"{i}. {ukol}")
             
-        task_number = int(input(f"\nZadejte číslo úkolu, které chcete odstranit: "))
+        task_number = int(input(f"\nZadej číslo úkolu, které chceš odstranit: "))
         
         while True:
             if task_number in range(1, len(ukoly) + 1):
@@ -66,7 +66,7 @@ def hlavni_menu():
         print(f"\nKonec programu.\n")
         quit()
     else:
-        print(f"\nZvolili jste neplatnou možnost. Prosím, opakujte volbu.\n")
+        print(f"\nZvolil/a jsi neplatnou možnost. Prosím, opakuj volbu.\n")
         hlavni_menu()
 
 
